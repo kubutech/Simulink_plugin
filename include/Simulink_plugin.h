@@ -17,17 +17,23 @@ LPCTSTR IMU_Buf;
 Str_IMU_Datarefs IMU_Datarefs;
 Str_IMU IMU;
 
-TCHAR steeringPlane_Mapping[] = TEXT("steeringPlane");
-HANDLE steeringPlane_Handle;
-LPCTSTR steeringPlane_Buf;
-Str_steeringPlane_Datarefs steeringPlane_Datarefs;
-Str_steeringPlane steeringPlane;
+TCHAR Angles_real_Mapping[] = TEXT("Angles_real");
+HANDLE Angles_real_Handle;
+LPCTSTR Angles_real_Buf;
+Str_Angles_real_Datarefs Angles_real_Datarefs;
+Str_Angles_real Angles_real;
 
-TCHAR pitch_Mapping[] = TEXT("pitch");
-HANDLE pitch_Handle;
-LPCTSTR pitch_Buf;
-Str_pitch_Datarefs pitch_Datarefs;
-Str_pitch pitch;
+TCHAR GPS_Mapping[] = TEXT("GPS");
+HANDLE GPS_Handle;
+LPCTSTR GPS_Buf;
+Str_GPS_Datarefs GPS_Datarefs;
+Str_GPS GPS;
+
+TCHAR Gravity_Mapping[] = TEXT("Gravity");
+HANDLE Gravity_Handle;
+LPCTSTR Gravity_Buf;
+Str_Gravity_Datarefs Gravity_Datarefs;
+Str_Gravity Gravity;
 
 
 XPLMFlightLoopID loopDataref;

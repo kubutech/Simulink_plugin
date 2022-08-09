@@ -4,44 +4,53 @@ typedef struct {
 	XPLMDataRef p;
 	XPLMDataRef q;
 	XPLMDataRef r;
-	XPLMDataRef ax;
-	XPLMDataRef ay;
-	XPLMDataRef az;
-	XPLMDataRef verticalSpeed;
+	XPLMDataRef axial_acceleration;
+	XPLMDataRef normal_acceleration;
+	XPLMDataRef side_acceleration;
 }Str_IMU_Datarefs;
 
 typedef struct {
 	float p;
 	float q;
 	float r;
-	float ax;
-	float ay;
-	float az;
-	float verticalSpeed;
+	float axial_acceleration;
+	float normal_acceleration;
+	float side_acceleration;
 	int active;
 }Str_IMU;
 
 typedef struct {
 	XPLMDataRef pitch;
-	XPLMDataRef yaw;
+	XPLMDataRef true_heading;
 	XPLMDataRef roll;
-	XPLMDataRef throttle;
-}Str_steeringPlane_Datarefs;
+}Str_Angles_real_Datarefs;
 
 typedef struct {
 	float pitch;
-	float yaw;
+	float true_heading;
 	float roll;
-	float throttle;
 	int active;
-}Str_steeringPlane;
+}Str_Angles_real;
 
 typedef struct {
-	XPLMDataRef pitch;
-}Str_pitch_Datarefs;
+	XPLMDataRef lat;
+	XPLMDataRef lon;
+	XPLMDataRef elevation;
+}Str_GPS_Datarefs;
 
 typedef struct {
-	float pitch;
+	double lat;
+	double lon;
+	double elevation;
 	int active;
-}Str_pitch;
+}Str_GPS;
+
+typedef struct {
+	XPLMDataRef g;
+}Str_Gravity_Datarefs;
+
+typedef struct {
+	float g;
+	int active;
+}Str_Gravity;
 

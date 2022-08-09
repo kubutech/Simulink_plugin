@@ -25,28 +25,24 @@ PLUGIN_API int XPluginStart(
 	strcpy(outSig, "kuba.projects.Simulink_plugin");
 	strcpy(outDesc, "Przesyla i odbiera dane z bloków Simulink");
 
+	//Create shared memory pools
 	setupSharedMem();
 
-	//loop for updating message
-	XPLMCreateFlightLoop_t flightDataLoopParams;
-	flightDataLoopParams.structSize = sizeof(flightDataLoopParams);
-	flightDataLoopParams.callbackFunc = UpdateFlightData;
-	flightDataLoopParams.phase = 1;
-	flightDataLoopParams.refcon = NULL;
+	//Find datarefs requires for plugin
+	findDataRefs();
 
-	loopFlightData = XPLMCreateFlightLoop(&flightDataLoopParams);
-
-	XPLMScheduleFlightLoop(loopFlightData, 0.5, 2);
-
-	FindDataRefs();
+	//register loops for updating variables
+	initializeFlightLoops();
 
 	return 1;
 }
 
 PLUGIN_API void	XPluginStop(void)
 {
-	XPLMDestroyFlightLoop(loopFlightData);
-	XPLMDestroyFlightLoop(loopDataref);
+	//unregister active FlightLoops
+	closeFlightLoops();
+
+	//Close shared memory pools
 	closeSharedMem();
 }
 
